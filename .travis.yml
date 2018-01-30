@@ -6,7 +6,6 @@ os: linux
 
 env:
   - ESLINT_VERSION=4
-  - ESLINT_VERSION=3
 
 matrix:
   include:
