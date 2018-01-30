@@ -24,4 +24,5 @@ install:
   - npm install --no-save eslint@$ESLINT_VERSION --ignore-scripts || true
 
 script:
+  - npm run lint
   - npm test
