@@ -1,5 +1,7 @@
 # eslint-plugin-janitor
 
+[![Build Status](https://travis-ci.org/tkbky/eslint-plugin-janitor.svg?branch=master)](https://travis-ci.org/tkbky/eslint-plugin-janitor)
+
 Janitor&#39;s favourites.
 
 ## Installation
