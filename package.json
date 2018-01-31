@@ -10,20 +10,24 @@
   "author": "janitor",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests --recursive",
-    "lint": "eslint lib/**/*.js tests/**/*.js"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint lib/**/*.js tests/**/*.js",
+    "test": "nyc mocha tests/**/*.js"
   },
   "dependencies": {
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.0",
     "eslint": "4.16.0",
     "eslint-config-standard": "11.0.0-beta.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-node": "5.2.1",
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-standard": "3.0.1",
-    "mocha": "3.1.2"
+    "istanbul": "^0.4.5",
+    "mocha": "3.1.2",
+    "nyc": "^11.4.1"
   },
   "engines": {
     "node": ">=0.10.0"
