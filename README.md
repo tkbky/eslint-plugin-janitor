@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tkbky/eslint-plugin-janitor.svg?branch=master)](https://travis-ci.org/tkbky/eslint-plugin-janitor)
 [![Coverage Status](https://coveralls.io/repos/github/tkbky/eslint-plugin-janitor/badge.svg?branch=master)](https://coveralls.io/github/tkbky/eslint-plugin-janitor?branch=master)
+[![npm version](https://badge.fury.io/js/eslint-plugin-janitor.svg)](https://badge.fury.io/js/eslint-plugin-janitor)
 
 Janitor&#39;s favourites.
 
