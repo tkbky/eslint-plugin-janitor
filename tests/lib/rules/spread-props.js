@@ -44,6 +44,24 @@ ruleTester.run("spread-props", rule, {
     },
     {
       code: "<div foo={foo()}></div>"
+    },
+    {
+      code: "<img {...{ foo }} />"
+    },
+    {
+      code: "<img {...{ foo, bar }} />"
+    },
+    {
+      code: "<img foo='foo' />"
+    },
+    {
+      code: "<img foo={()=>{}} />"
+    },
+    {
+      code: "<img foo={this.foo} />"
+    },
+    {
+      code: "<img foo={foo()} />"
     }
   ],
 
@@ -106,6 +124,61 @@ Instead of <div foo={foo}></div>, do <div {...{ foo }}></div>
     {
       code: "<div foobar={foobar} foo={foo} {...{ bar }} baz={baz} barbaz={barbaz}></div>",
       output: "<div {...{ bar, barbaz, baz, foo, foobar }}></div>",
+      errors: [{
+        message: `
+Use spread attributes when identifier for prop's name and value are the same.
+Instead of <div foo={foo}></div>, do <div {...{ foo }}></div>
+`,
+        type: "JSXOpeningElement"
+      }]
+    },
+    {
+      code: "<img foo={foo}/>",
+      output: "<img {...{ foo }}/>",
+      errors: [{
+        message: `
+Use spread attributes when identifier for prop's name and value are the same.
+Instead of <div foo={foo}></div>, do <div {...{ foo }}></div>
+`,
+        type: "JSXOpeningElement"
+      }]
+    },
+    {
+      code: "<img foo={foo} />",
+      output: "<img {...{ foo }} />",
+      errors: [{
+        message: `
+Use spread attributes when identifier for prop's name and value are the same.
+Instead of <div foo={foo}></div>, do <div {...{ foo }}></div>
+`,
+        type: "JSXOpeningElement"
+      }]
+    },
+    {
+      code: "<img foo={foo} bar={bar}/>",
+      output: "<img {...{ bar, foo }}/>",
+      errors: [{
+        message: `
+Use spread attributes when identifier for prop's name and value are the same.
+Instead of <div foo={foo}></div>, do <div {...{ foo }}></div>
+`,
+        type: "JSXOpeningElement"
+      }]
+    },
+    {
+      code: "<img foo={foo} {...{ bar }}/>",
+      output: "<img {...{ bar, foo }}/>",
+      errors: [{
+        message: `
+Use spread attributes when identifier for prop's name and value are the same.
+Instead of <div foo={foo}></div>, do <div {...{ foo }}></div>
+`,
+        type: "JSXOpeningElement"
+      }]
+    },
+    {
+      code: "<img foobar={foobar} foo={foo} {...{ bar }} baz={baz} barbaz={barbaz}/>",
+      output: "<img {...{ bar, barbaz, baz, foo, foobar }}/>",
       errors: [{
         message: `
 Use spread attributes when identifier for prop's name and value are the same.
